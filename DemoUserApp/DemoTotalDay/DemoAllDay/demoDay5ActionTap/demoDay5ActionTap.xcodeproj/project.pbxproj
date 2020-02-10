@@ -19,6 +19,7 @@
 		BC1FE48923CEF387005D6362 /* demoDay5ActionTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1FE48823CEF387005D6362 /* demoDay5ActionTapUITests.swift */; };
 		BC32F9FA23EBF0F300368965 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32F9F923EBF0F300368965 /* CollectionViewController.swift */; };
 		BC32F9FC23EBFA0A00368965 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC32F9FB23EBFA0A00368965 /* CollectionViewCell.swift */; };
+		BC41B5CD23F1375E0058A37E /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B5CC23F1375E0058A37E /* CollectionImageViewCell.swift */; };
 		BC5BCEB023E967B4005D17BF /* TableLoadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BCEAF23E967B4005D17BF /* TableLoadMoreViewController.swift */; };
 		BC5C4EDF23D01B13001F0C5B /* PinchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */; };
 		BC7AEA9E23E9160700E448C3 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEA9D23E9160700E448C3 /* CustomCell.swift */; };
@@ -63,6 +64,7 @@
 		BC1FE48A23CEF387005D6362 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC32F9F923EBF0F300368965 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		BC32F9FB23EBFA0A00368965 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		BC41B5CC23F1375E0058A37E /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		BC5BCEAF23E967B4005D17BF /* TableLoadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLoadMoreViewController.swift; sourceTree = "<group>"; };
 		BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchViewController.swift; sourceTree = "<group>"; };
 		BC7AEA9D23E9160700E448C3 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				BC5BCEAF23E967B4005D17BF /* TableLoadMoreViewController.swift */,
 				BC32F9F923EBF0F300368965 /* CollectionViewController.swift */,
 				BC32F9FB23EBFA0A00368965 /* CollectionViewCell.swift */,
+				BC41B5CC23F1375E0058A37E /* CollectionImageViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				BC32F9FA23EBF0F300368965 /* CollectionViewController.swift in Sources */,
 				BC1FE46B23CEF385005D6362 /* ViewController.swift in Sources */,
+				BC41B5CD23F1375E0058A37E /* CollectionImageViewCell.swift in Sources */,
 				BC1BEBA623D5918E00EBA1ED /* RotationViewController.swift in Sources */,
 				BC7AEAA223E94AF100E448C3 /* ImageViewController.swift in Sources */,
 				BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */,
