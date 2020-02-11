@@ -22,6 +22,8 @@
 		BC41B5CD23F1375E0058A37E /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B5CC23F1375E0058A37E /* CollectionImageViewCell.swift */; };
 		BC5BCEB023E967B4005D17BF /* TableLoadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BCEAF23E967B4005D17BF /* TableLoadMoreViewController.swift */; };
 		BC5C4EDF23D01B13001F0C5B /* PinchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */; };
+		BC5D3B0A23F24C3000208C7D /* CollectionSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D3B0923F24C3000208C7D /* CollectionSliderViewController.swift */; };
+		BC5D3B0C23F256AC00208C7D /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */; };
 		BC7AEA9E23E9160700E448C3 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEA9D23E9160700E448C3 /* CustomCell.swift */; };
 		BC7AEAA223E94AF100E448C3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */; };
 		BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */; };
@@ -67,6 +69,8 @@
 		BC41B5CC23F1375E0058A37E /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		BC5BCEAF23E967B4005D17BF /* TableLoadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLoadMoreViewController.swift; sourceTree = "<group>"; };
 		BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchViewController.swift; sourceTree = "<group>"; };
+		BC5D3B0923F24C3000208C7D /* CollectionSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSliderViewController.swift; sourceTree = "<group>"; };
+		BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC7AEA9D23E9160700E448C3 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		BC1BEBA223D5881200EBA1ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC5D3B0823F24BC600208C7D /* Collection */,
 				BC1BEBA323D5888F00EBA1ED /* HomeViewController.swift */,
 				BC1BEBA523D5918E00EBA1ED /* RotationViewController.swift */,
 				BC1BEBA723D5B05000EBA1ED /* SwipeViewController.swift */,
@@ -167,6 +172,15 @@
 				BC1FE48A23CEF387005D6362 /* Info.plist */,
 			);
 			path = demoDay5ActionTapUITests;
+			sourceTree = "<group>";
+		};
+		BC5D3B0823F24BC600208C7D /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				BC5D3B0923F24C3000208C7D /* CollectionSliderViewController.swift */,
+				BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */,
+			);
+			name = Collection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,12 +318,14 @@
 				BC1FE46B23CEF385005D6362 /* ViewController.swift in Sources */,
 				BC41B5CD23F1375E0058A37E /* CollectionImageViewCell.swift in Sources */,
 				BC1BEBA623D5918E00EBA1ED /* RotationViewController.swift in Sources */,
+				BC5D3B0A23F24C3000208C7D /* CollectionSliderViewController.swift in Sources */,
 				BC7AEAA223E94AF100E448C3 /* ImageViewController.swift in Sources */,
 				BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */,
 				BC7AEA9E23E9160700E448C3 /* CustomCell.swift in Sources */,
 				BCD3554823E7C97D00EDB11E /* TableViewController.swift in Sources */,
 				BC5C4EDF23D01B13001F0C5B /* PinchViewController.swift in Sources */,
 				BC32F9FC23EBFA0A00368965 /* CollectionViewCell.swift in Sources */,
+				BC5D3B0C23F256AC00208C7D /* CustomCollectionViewCell.swift in Sources */,
 				BC1FE46923CEF385005D6362 /* AppDelegate.swift in Sources */,
 				BC1BEBA423D5888F00EBA1ED /* HomeViewController.swift in Sources */,
 				BC1BEBA823D5B05000EBA1ED /* SwipeViewController.swift in Sources */,

@@ -26,7 +26,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         return arrImage.count
     }
     
-    
+     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.backgroundColor = UIColor.green
@@ -43,5 +43,6 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         vc.imgName = arrImage[indexPath.item]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }

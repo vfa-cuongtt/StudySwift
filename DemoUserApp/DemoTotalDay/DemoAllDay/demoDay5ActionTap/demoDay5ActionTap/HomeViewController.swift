@@ -52,4 +52,10 @@ class HomeViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionVC")  as! CollectionViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func showCollectionSliderViewActionClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionSliderVC") as! CollectionSliderViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
