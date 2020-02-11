@@ -24,6 +24,7 @@
 		BC5C4EDF23D01B13001F0C5B /* PinchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */; };
 		BC5D3B0A23F24C3000208C7D /* CollectionSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D3B0923F24C3000208C7D /* CollectionSliderViewController.swift */; };
 		BC5D3B0C23F256AC00208C7D /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */; };
+		BC5D3B0F23F28E0400208C7D /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D3B0E23F28E0400208C7D /* ScrollViewController.swift */; };
 		BC7AEA9E23E9160700E448C3 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEA9D23E9160700E448C3 /* CustomCell.swift */; };
 		BC7AEAA223E94AF100E448C3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */; };
 		BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */; };
@@ -71,6 +72,7 @@
 		BC5C4EDE23D01B13001F0C5B /* PinchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchViewController.swift; sourceTree = "<group>"; };
 		BC5D3B0923F24C3000208C7D /* CollectionSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSliderViewController.swift; sourceTree = "<group>"; };
 		BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC5D3B0E23F28E0400208C7D /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		BC7AEA9D23E9160700E448C3 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		BC1BEBA223D5881200EBA1ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC5D3B0D23F28DD300208C7D /* ScrollView */,
 				BC5D3B0823F24BC600208C7D /* Collection */,
 				BC1BEBA323D5888F00EBA1ED /* HomeViewController.swift */,
 				BC1BEBA523D5918E00EBA1ED /* RotationViewController.swift */,
@@ -181,6 +184,14 @@
 				BC5D3B0B23F256AC00208C7D /* CustomCollectionViewCell.swift */,
 			);
 			name = Collection;
+			sourceTree = "<group>";
+		};
+		BC5D3B0D23F28DD300208C7D /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				BC5D3B0E23F28E0400208C7D /* ScrollViewController.swift */,
+			);
+			name = ScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */,
 				BC7AEA9E23E9160700E448C3 /* CustomCell.swift in Sources */,
 				BCD3554823E7C97D00EDB11E /* TableViewController.swift in Sources */,
+				BC5D3B0F23F28E0400208C7D /* ScrollViewController.swift in Sources */,
 				BC5C4EDF23D01B13001F0C5B /* PinchViewController.swift in Sources */,
 				BC32F9FC23EBFA0A00368965 /* CollectionViewCell.swift in Sources */,
 				BC5D3B0C23F256AC00208C7D /* CustomCollectionViewCell.swift in Sources */,

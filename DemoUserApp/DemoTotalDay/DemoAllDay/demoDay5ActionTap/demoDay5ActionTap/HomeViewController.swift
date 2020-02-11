@@ -58,4 +58,8 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func showScrollViewActionClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ScrollVC") as! ScrollViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
