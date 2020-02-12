@@ -62,4 +62,9 @@ class HomeViewController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ScrollVC") as! ScrollViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func showApiExamoleViewActionClick(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ApiExampleVC") as! ApiExampleViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

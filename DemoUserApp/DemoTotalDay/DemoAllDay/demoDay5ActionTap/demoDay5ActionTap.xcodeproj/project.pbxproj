@@ -29,6 +29,7 @@
 		BC7AEAA223E94AF100E448C3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */; };
 		BCC3E23C23D6F609005A5AD2 /* PanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */; };
 		BCD3554823E7C97D00EDB11E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3554723E7C97D00EDB11E /* TableViewController.swift */; };
+		BCF0F0D623F39FCB006603FF /* ApiExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0F0D523F39FCB006603FF /* ApiExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BC7AEAA123E94AF100E448C3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		BCC3E23B23D6F609005A5AD2 /* PanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanViewController.swift; sourceTree = "<group>"; };
 		BCD3554723E7C97D00EDB11E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BCF0F0D523F39FCB006603FF /* ApiExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		BC1BEBA223D5881200EBA1ED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCF0F0D423F39F81006603FF /* API */,
 				BC5D3B0D23F28DD300208C7D /* ScrollView */,
 				BC5D3B0823F24BC600208C7D /* Collection */,
 				BC1BEBA323D5888F00EBA1ED /* HomeViewController.swift */,
@@ -192,6 +195,14 @@
 				BC5D3B0E23F28E0400208C7D /* ScrollViewController.swift */,
 			);
 			name = ScrollView;
+			sourceTree = "<group>";
+		};
+		BCF0F0D423F39F81006603FF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BCF0F0D523F39FCB006603FF /* ApiExampleViewController.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 				BC1FE46923CEF385005D6362 /* AppDelegate.swift in Sources */,
 				BC1BEBA423D5888F00EBA1ED /* HomeViewController.swift in Sources */,
 				BC1BEBA823D5B05000EBA1ED /* SwipeViewController.swift in Sources */,
+				BCF0F0D623F39FCB006603FF /* ApiExampleViewController.swift in Sources */,
 				BC5BCEB023E967B4005D17BF /* TableLoadMoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
