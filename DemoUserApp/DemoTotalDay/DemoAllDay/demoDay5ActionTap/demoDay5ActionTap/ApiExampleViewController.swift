@@ -76,7 +76,7 @@ class ApiExampleViewController: UIViewController {
                 // get data json in Course
 //              let course = try JSONDecoder().decode([Course].self, from: data)
                 
-                
+                //get data json webDescription
                 let webDescription = try JSONDecoder().decode(WebDescription.self, from: data)
                 print(webDescription.course)
                 
