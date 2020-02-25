@@ -18,13 +18,14 @@ final class Album {
             self.title = title
         }
         
-        if let series = data["description"] as? String {
-            self.description = series
+        if let description = data["description"] as? String {
+          
+            self.description = description
         }
         
-        if let thumbnail = data["thumbnail"] as? String {
-            print(thumbnail)
-            self.thumbnail = thumbnail
+        if let thumbnail = data["thumbnail"] as? [String: Any] {
+            let urlThumbnail = "\(thumbnail["path"]!)/portrait_xlarge.\(thumbnail["extension"]!)"
+            self.thumbnail = urlThumbnail
         }
     }
 }

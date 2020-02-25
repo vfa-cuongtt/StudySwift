@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var btnSearch: UIButton!
     @IBOutlet weak var tbvAlbum: UITableView!
-    var BASE_URL = "http://gateway.marvel.com/v1/public/comics?ts=1&apikey=d8cc630e6d847e0c8358c512f1778f06&hash=a6f2f6b0dc7b053ec92bcd6a7988b62a"
+//    var BASE_URL = "http://gateway.marvel.com/v1/public/comics?ts=1&apikey=d8cc630e6d847e0c8358c512f1778f06&hash=a6f2f6b0dc7b053ec92bcd6a7988b62a"
     
     var albumDatas = [Album]()
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     func getComicsData() {
-        guard let url = URL(string: BASE_URL) else {
+        guard let url = URL(string: Production.BASE_URL) else {
             print("GET URL ERROR")
             return
         }
@@ -46,18 +46,19 @@ class ViewController: UIViewController {
                     return
             }
                 print("Qua rồi anh em oi ")
-            print(dataResultsObj)
+            print("Ahihi: \(dataObj)")
             
             albumDatas.removeAll()
             dataResultsObj.forEach{ (dataResultsObj) in
                 albumDatas.append(Album(data: dataResultsObj))
+                
             }
             
             // reload Data
             tbvAlbum.reloadData()
             
         case .failure(let error):
-            print("ERROR FROM SERVER")
+            print("ERROR FROM SERVER: \(error) ")
         }
     }
     

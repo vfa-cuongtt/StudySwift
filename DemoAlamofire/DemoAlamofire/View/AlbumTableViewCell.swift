@@ -28,6 +28,18 @@ class AlbumTableViewCell: UITableViewCell {
     func fillData(_ data: Album){
         lblTitle.text = data.title
         lblDescription.text = data.description
-//        imgThumbnail.image = data.thumbnail
+        
+        // load thumbnail
+        do {
+            let url:URL =  URL(string: data.thumbnail)!
+            print("CuongTT_URL: \(url)")
+            let imgUrl:Data = try Data(contentsOf: url)
+            imgThumbnail.image = UIImage(data: imgUrl)
+        } catch {
+            print("Cant Load Image")
+        }
+        
     }
+    
+
 }
