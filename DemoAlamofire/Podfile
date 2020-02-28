@@ -9,7 +9,8 @@ target 'DemoAlamofire' do
   pod 'Alamofire', '~> 4.6'
   pod 'ObjectMapper', '~> 3.1'
   pod 'AlamofireObjectMapper', '~> 5.0'
-
+  pod 'Kingfisher', '~> 4.0'
+  
   target 'DemoAlamofireTests' do
     inherit! :search_paths
     # Pods for testing

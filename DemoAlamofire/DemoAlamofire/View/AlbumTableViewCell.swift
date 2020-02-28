@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AlbumTableViewCell: UITableViewCell {
 
@@ -25,16 +26,15 @@ class AlbumTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func fillData(_ data: Album){
+    func fillData(_ data: Audio){
         lblTitle.text = data.title
         lblDescription.text = data.description
         
         // load thumbnail
         do {
-            let url:URL =  URL(string: data.thumbnail)!
-            print("CuongTT_URL: \(url)")
-            let imgUrl:Data = try Data(contentsOf: url)
-            imgThumbnail.image = UIImage(data: imgUrl)
+            let parseUrl = "\(data.thumbnail!.path!)/portrait_xlarge.\(data.thumbnail!.extent!)"
+            let url:URL =  URL(string: parseUrl)!
+            imgThumbnail.kf.setImage(with: url)
         } catch {
             print("Cant Load Image")
         }
