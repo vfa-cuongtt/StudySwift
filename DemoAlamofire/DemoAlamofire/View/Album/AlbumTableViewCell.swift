@@ -32,8 +32,7 @@ class AlbumTableViewCell: UITableViewCell {
         
         // load thumbnail
         do {
-            let parseUrl = "\(data.thumbnail!.path!)/portrait_xlarge.\(data.thumbnail!.extent!)"
-            let url:URL =  URL(string: parseUrl)!
+            let url:URL = URL(string: data.thumbnail!.url!)!
             imgThumbnail.kf.setImage(with: url)
         } catch {
             print("Cant Load Image")

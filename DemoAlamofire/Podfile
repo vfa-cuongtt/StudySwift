@@ -10,6 +10,7 @@ target 'DemoAlamofire' do
   pod 'ObjectMapper', '~> 3.1'
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'Kingfisher', '~> 4.0'
+  pod 'FMDB'
   
   target 'DemoAlamofireTests' do
     inherit! :search_paths

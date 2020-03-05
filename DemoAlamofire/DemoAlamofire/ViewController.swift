@@ -33,6 +33,22 @@ class ViewController: UIViewController {
         postComicsData(["limit": limit, "orderBy": "title"])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+
     func getComicsData() {
         guard let url = URL(string: Production.BASE_URL) else {
             print("GET URL ERROR")
@@ -70,6 +86,7 @@ class ViewController: UIViewController {
             
             for item:[String : Any] in dataResultsObj {
                 let audio = Audio(dic: item)
+                DBManager.shared.insterAudio(audio: audio)
                 arrShowItem.append(audio)
             }
             isLoading = false
@@ -86,9 +103,10 @@ class ViewController: UIViewController {
     
     @IBAction func searchComicsActionClick(_ sender: Any) {
         if let textSearch = txtSearch.text, !textSearch.isEmpty {
-            postComicsData(["title": textSearch])
+            print("Title: \(textSearch)")
+            postComicsData(["title": textSearch, "limit": limit, "orderBy": "title"])
         } else {
-            getComicsData()
+            postComicsData(["limit": limit, "orderBy": "title"])
         }
     }
     
@@ -118,11 +136,16 @@ extension ViewController: UITableViewDelegate {
         self.postComicsData(param)
         
     }
+    
+    
 }
 
 extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("arrShowItem: \(arrShowItem)")
         return arrShowItem.count
     }
     
@@ -134,5 +157,15 @@ extension ViewController: UITableViewDataSource {
         cell.fillData(arrShowItem[indexPath.row])
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("CuongTT: \(arrShowItem[indexPath.row])")
+        
+        let rowItem = arrShowItem[indexPath.row]
+       
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
+        vc.audio = rowItem
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

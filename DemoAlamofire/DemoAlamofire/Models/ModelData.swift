@@ -43,15 +43,21 @@ struct Prices {
 }
 
 struct Thumbnail {
-    var path: String?
-    var extent: String?
+//    var path: String?
+//    var extent: String?
+    
+    var url: String?
     
     init(dic: [String : Any]) {
-        if let path = dic["path"] as? String {
-            self.path = path
-        }
-        if let extent = dic["extension"] as? String {
-            self.extent = extent
+//        if let path = dic["path"] as? String {
+//            self.path = path
+//        }
+//        if let extent = dic["extension"] as? String {
+//            self.extent = extent
+//        }
+
+        if let path = dic["path"]! as? String , let extent = dic["extension"]! as? String{
+            self.url = "\(path)/portrait_xlarge.\(extent)"
         }
     }
 }
