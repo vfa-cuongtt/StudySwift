@@ -14,6 +14,7 @@
 		BC406AE12410B3A3001AED2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC406ADF2410B3A3001AED2A /* LaunchScreen.storyboard */; };
 		BC406AEC2410B3A4001AED2A /* DemoMapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC406AEB2410B3A4001AED2A /* DemoMapKitTests.swift */; };
 		BC406AF72410B3A4001AED2A /* DemoMapKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC406AF62410B3A4001AED2A /* DemoMapKitUITests.swift */; };
+		BC406B082410FEB1001AED2A /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC406B072410FEB1001AED2A /* CustomAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		BC406AF22410B3A4001AED2A /* DemoMapKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoMapKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC406AF62410B3A4001AED2A /* DemoMapKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMapKitUITests.swift; sourceTree = "<group>"; };
 		BC406AF82410B3A4001AED2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC406B072410FEB1001AED2A /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		BC406AD52410B3A1001AED2A /* DemoMapKit */ = {
 			isa = PBXGroup;
 			children = (
+				BC406B062410FE43001AED2A /* Annotation */,
 				BC406AD62410B3A1001AED2A /* AppDelegate.swift */,
 				BC406AD82410B3A1001AED2A /* ViewController.swift */,
 				BC406ADA2410B3A1001AED2A /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				BC406AF82410B3A4001AED2A /* Info.plist */,
 			);
 			path = DemoMapKitUITests;
+			sourceTree = "<group>";
+		};
+		BC406B062410FE43001AED2A /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				BC406B072410FEB1001AED2A /* CustomAnnotation.swift */,
+			);
+			path = Annotation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			files = (
 				BC406AD92410B3A1001AED2A /* ViewController.swift in Sources */,
 				BC406AD72410B3A1001AED2A /* AppDelegate.swift in Sources */,
+				BC406B082410FEB1001AED2A /* CustomAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

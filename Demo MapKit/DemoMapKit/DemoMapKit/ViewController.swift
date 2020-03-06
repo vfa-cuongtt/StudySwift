@@ -25,7 +25,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // show location trong mapView
         mapView.showsUserLocation = true
-        
+        let currentLocation = locationManager.location?.coordinate
+        print("CuongTT: \(currentLocation!)")
+        setAnnotation(title: "Ahihi", subTitle: "Hello", coordinate: currentLocation!)
+    }
+    
+    func setAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D)  {
+        // Create annotation
+        let annotation = CustomAnnotation(title: title, subTitle: subTitle, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        mapView.addAnnotation(annotation )
     }
     
     
