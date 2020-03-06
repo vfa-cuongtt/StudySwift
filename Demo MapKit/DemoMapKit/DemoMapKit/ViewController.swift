@@ -9,14 +9,16 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        mapView.delegate = self
         // 100 met cap nhat 1 lan
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         // cap quyen cai app
@@ -27,12 +29,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         mapView.showsUserLocation = true
         let currentLocation = locationManager.location?.coordinate
         print("CuongTT: \(currentLocation!)")
-        setAnnotation(title: "Ahihi", subTitle: "Hello", coordinate: currentLocation!)
+        
+        setAnnotation(title: "Ahihi", subTitle: "Hello", coordinate: currentLocation!, image: "PNG009")
     }
     
-    func setAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D)  {
+    func setAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D, image: String)  {
         // Create annotation
-        let annotation = CustomAnnotation(title: title, subTitle: subTitle, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        let annotation = CustomAnnotation(title: title, subTitle: subTitle, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), image: UIImage(named: image)!)
         mapView.addAnnotation(annotation )
     }
     
@@ -47,6 +50,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
         // set mapView show current loacation
         mapView.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
+        
     }
 
 
