@@ -18,7 +18,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+//        pin view thuoc MKMapViewDelegate Protocol
         mapView.delegate = self
+        
         // 100 met cap nhat 1 lan
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         // cap quyen cai app
@@ -50,8 +52,46 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
         // set mapView show current loacation
         mapView.setRegion(region, animated: true)
+        
+        // stop update khi re mapview
         locationManager.stopUpdatingLocation()
         
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let myAnnotation = annotation as? CustomAnnotation {
+            
+            // cho phep tai su dung lai pinView
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: "Custom Pin Anotation View")
+            
+            if pinView == nil {
+                pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "Custom Pin Anotation View")
+                pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                pinView?.canShowCallout = true
+                
+                
+                
+                // cho biet vij tri cua pinview trong cai annotation
+                pinView?.calloutOffset = CGPoint(x: 0, y: 4)
+                
+                // noi dung ben trong cuar pinView
+                pinView?.contentMode = .scaleAspectFill
+            } else {
+                pinView?.annotation = annotation
+            }
+            
+            // resize image
+            let size =  CGSize(width: 50, height: 50)
+            UIGraphicsBeginImageContext(size)
+            myAnnotation.image?.draw(in: CGRect(x: 0, y: 4, width: size.width, height: size.height))
+            let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+            
+            pinView?.image = resizeImage
+            
+            
+            return pinView
+        }
+        return nil
     }
 
 
