@@ -13,7 +13,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
-    
+    var annotationArray:[CustomAnnotation] = [CustomAnnotation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         // show location trong mapView
         mapView.showsUserLocation = true
+        
+        addAnnotationsOnMapView()
+        
+        // add annotation array for mapView
+        mapView.addAnnotations(self.annotationArray)
+    }
+    
+    
+    func addAnnotationsOnMapView() {
+        
         let currentLocation = locationManager.location?.coordinate
         print("CuongTT: \(currentLocation!)")
-        
         setAnnotation(title: "Ahihi", subTitle: "Hello", coordinate: currentLocation!, image: "PNG009")
+
+        
+        let destinationLocation = CLLocationCoordinate2D(latitude: 10.796670, longitude: 106.677655)
+        setAnnotation(title: "Alo", subTitle: "OLa", coordinate: destinationLocation, image: "PNG003")
     }
     
     func setAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D, image: String)  {
         // Create annotation
         let annotation = CustomAnnotation(title: title, subTitle: subTitle, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), image: UIImage(named: image)!)
-        mapView.addAnnotation(annotation )
+        
+        self.annotationArray.append(annotation)
+        
+        // Add annotation
+//        mapView.addAnnotation(annotation )
+        
     }
     
     
@@ -68,8 +86,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "Custom Pin Anotation View")
                 pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 pinView?.canShowCallout = true
-                
-                
                 
                 // cho biet vij tri cua pinview trong cai annotation
                 pinView?.calloutOffset = CGPoint(x: 0, y: 4)
