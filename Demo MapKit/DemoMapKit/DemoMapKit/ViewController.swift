@@ -46,6 +46,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         let destinationLocation = CLLocationCoordinate2D(latitude: 10.796670, longitude: 106.677655)
         setAnnotation(title: "Alo", subTitle: "OLa", coordinate: destinationLocation, image: "PNG003")
+        
+        
+        self.drawLineTwoLocation(sourceLocation: currentLocation!, destinationLocation: destinationLocation)
     }
     
     func setAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D, image: String)  {
@@ -56,7 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         // Add annotation
 //        mapView.addAnnotation(annotation )
-        
+       
     }
     
     
@@ -109,6 +112,53 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         return nil
     }
+
+    /*
+     draw line two location
+     param: sourceLocation:
+     param: destinationLocation
+    */
+    func drawLineTwoLocation(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+        // Step 1
+        //addressDictionary: kieeur dictionnary gom ten duong , dia chi v.v
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        //setp 2
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem  = MKMapItem(placemark: destinationPlacemark)
+        
+        //Step 3
+        let directRequest = MKDirections.Request()
+        directRequest.source = sourceMapItem
+        directRequest.destination = destinationMapItem
+        directRequest.transportType = .automobile
+        
+        // step 4
+        let directions = MKDirections(request: directRequest)
+        directions.calculate { (response, error) in
+            if error == nil {
+                // con duong ngat nhat thuong o phat tu dauy tien
+                if let route =  response?.routes.first {
+                    self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+                    let rect = route.polyline.boundingMapRect
+                    
+                    self.mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 20, right: 20), animated: true)
+                }
+            } else {
+                print("err: \(error?.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+         renderer.strokeColor = UIColor.blue
+         renderer.lineWidth = 2
+        return renderer
+    }
+    
 
 
 }
