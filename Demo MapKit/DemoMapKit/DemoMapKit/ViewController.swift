@@ -121,14 +121,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func drawLineTwoLocation(sourceLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
         // Step 1
         //addressDictionary: kieeur dictionnary gom ten duong , dia chi v.v
+        // MKPlacemark hiển thị thông tin vị trí trên  
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
         
         //setp 2
+        // MKMapItem: return về 1 mapItem của placemark
         let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
         let destinationMapItem  = MKMapItem(placemark: destinationPlacemark)
         
         //Step 3
+        // direct 2 location
+        // MKDirections Yeu cau thuc hien chi duowng
         let directRequest = MKDirections.Request()
         directRequest.source = sourceMapItem
         directRequest.destination = destinationMapItem
@@ -139,6 +143,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         directions.calculate { (response, error) in
             if error == nil {
                 // con duong ngat nhat thuong o phat tu dauy tien
+                print("CuongTT: \(response?.routes)")
                 if let route =  response?.routes.first {
                     self.mapView.addOverlay(route.polyline, level: .aboveRoads)
                     let rect = route.polyline.boundingMapRect
@@ -152,6 +157,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+    /*
+     render line in MapView
+     */
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
          renderer.strokeColor = UIColor.blue
@@ -160,6 +168,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
 
+     
 
 }
 
