@@ -68,7 +68,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         searchRequest.naturalLanguageQuery = searchBar.text
         print("searchRequest.naturalLanguageQuery: \(searchRequest.naturalLanguageQuery)")
         
-        //MKLocalSearch: return ve KQ
+        //MKLocalSearch: return ve KQ search
         let activeSearch = MKLocalSearch(request: searchRequest)
         
         // Starts the search and delivers the results to the specified completion handler.
