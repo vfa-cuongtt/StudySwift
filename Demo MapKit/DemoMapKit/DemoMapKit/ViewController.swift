@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
@@ -18,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        
+        
 //        pin view thuoc MKMapViewDelegate Protocol
         mapView.delegate = self
         
@@ -30,15 +32,79 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // show location trong mapView
         mapView.showsUserLocation = true
         
-        addAnnotationsOnMapView()
+//        addAnnotationsOnMapView()
         
         // add annotation array for mapView
         mapView.addAnnotations(self.annotationArray)
     }
     
     
-    func addAnnotationsOnMapView() {
+    @IBAction func searchButton(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        present(searchController, animated: true, completion: nil)
         
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        // khoi tạo control thực hiện event
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+//      add activityIndicator vào mainView
+        self.view.addSubview(activityIndicator)
+        
+        //resignFirstResponder : dùng để dismiss keyboard
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        
+        //create the search request
+        let searchRequest = MKLocalSearch.Request()
+        
+        searchRequest.naturalLanguageQuery = searchBar.text
+        print("searchRequest.naturalLanguageQuery: \(searchRequest.naturalLanguageQuery)")
+        
+        //MKLocalSearch: return ve KQ
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        
+        // Starts the search and delivers the results to the specified completion handler.
+        activeSearch.start { (response, error) in
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+
+            if response ==  nil {
+                print("Error: \(String(describing: error))")
+            } else {
+                // remove annotations
+                let anotations = self.mapView.annotations
+                self.mapView.removeAnnotations(anotations)
+                
+                //Getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                
+                let annotation = MKPointAnnotation()
+                annotation.title = searchBar.text
+                annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                self.mapView.addAnnotation(annotation)
+                
+                //zooming in on annotaion
+                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                let region = MKCoordinateRegion(center: coordinate, span: span)
+                self.mapView.setRegion(region, animated: true)
+                
+                
+                
+            }
+        }
+    }
+    
+    func addAnnotationsOnMapView() {
         let currentLocation = locationManager.location?.coordinate
         print("CuongTT: \(currentLocation!)")
         setAnnotation(title: "Ahihi", subTitle: "Hello", coordinate: currentLocation!, image: "PNG009")
