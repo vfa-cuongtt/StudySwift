@@ -15,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     var uuidString = UUID().uuidString
 
+    // Step 2:  
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+         print("Failed to register: \(error)")
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
     }
@@ -26,9 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Hello 123")
         }
         
+        if let notification = response.notification.request.content.userInfo as? [String: AnyObject] {
+            print("Notification : \(response.notification.request)")
+        }
+        
         completionHandler()
         
         
+    }
+    
+    private func parseRemoteNotification(notification:[String:AnyObject]) -> String?{
+        if let aps = notification["aps"] as? [String:AnyObject] {
+            let alert = aps["alert"] as? String
+            return alert
+        }
+        
+        return nil
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -40,6 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error ) in
             print("ahihi: \(granted)")
         }
+        
+        // PUSH Notification
+        // Step 1:  register push notification
+         UIApplication.shared.registerForRemoteNotifications()
         
         return true
     }

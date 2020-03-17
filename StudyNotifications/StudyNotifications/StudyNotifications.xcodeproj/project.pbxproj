@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC72E6EF241B3E1F00CD9EFA /* StudyNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyNotifications.entitlements; sourceTree = "<group>"; };
 		BC8CA9382419EE51002F6951 /* StudyNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8CA93B2419EE51002F6951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8CA93D2419EE51002F6951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		BC8CA93A2419EE51002F6951 /* StudyNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				BC72E6EF241B3E1F00CD9EFA /* StudyNotifications.entitlements */,
 				BC8CA93B2419EE51002F6951 /* AppDelegate.swift */,
 				BC8CA93D2419EE51002F6951 /* ViewController.swift */,
 				BC8CA93F2419EE51002F6951 /* Main.storyboard */,
@@ -193,6 +195,11 @@
 				TargetAttributes = {
 					BC8CA9372419EE51002F6951 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BC8CA94B2419EE55002F6951 = {
 						CreatedOnToolsVersion = 10.3;
@@ -432,15 +439,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3T88XE4NP;
+				CODE_SIGN_ENTITLEMENTS = StudyNotifications/StudyNotifications.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MG2552XA6Q;
 				INFOPLIST_FILE = StudyNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TuanCuong.StudyNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.vitalify.vfatestpush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = VFATestPush;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,15 +461,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3T88XE4NP;
+				CODE_SIGN_ENTITLEMENTS = StudyNotifications/StudyNotifications.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = MG2552XA6Q;
 				INFOPLIST_FILE = StudyNotifications/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TuanCuong.StudyNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.vitalify.vfatestpush;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = VFATestPush;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
