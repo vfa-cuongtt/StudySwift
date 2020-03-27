@@ -18,17 +18,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
     @IBAction func chooseImage(_ sender: AnyObject) {
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-            let imgPicker = UIImagePickerController()
-            imgPicker.delegate = self
-//            imgPicker.sourceType = UIImagePickerController.SourceType.camera
-//            imgPicker.mediaTypes = ["public.image", "public.movie"]
-//            imgPicker.allowsEditing = true
-//            self.present(imgPicker, animated: true, completion: nil)
-//        }
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
         
+        // Show actionSheet
         let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
         
+        //add action with title is Camera
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
                 imgPicker.sourceType = .camera
@@ -39,17 +35,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         }))
         
+        // Add action with title Photo library
         actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
             imgPicker.sourceType = .photoLibrary
             self.present(imgPicker, animated: true, completion: nil)
         }))
         
+        // add action is Cancel
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
+        // run action
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    // Done image capture here
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imgView.contentMode = .scaleAspectFill
             imgView.image = pickedImage
@@ -63,6 +64,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    
+    //Start:  Save Image into the Library
    @IBAction func saveImage(_ sender: AnyObject) {
         guard let selectImage = imgView.image else {
             print("Image not found")
@@ -83,5 +86,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             present(action, animated: true, completion: nil)
         }
     }
+    // End
 }
 
